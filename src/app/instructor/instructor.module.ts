@@ -12,8 +12,10 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { HttpClientModule } from '@angular/common/http';
 import { NgMultiSelectDropDownModule } from "ng-multiselect-dropdown";
 // ...
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CertificateComponent } from './certificate/certificate.component';
+import { TextareaautosizeDirective } from './textareaautosize.directive';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { CertificateComponent } from './certificate/certificate.component';
     InformationComponent,
     ProfileComponent,
     CertificateComponent,
+    TextareaautosizeDirective,
   ],
   imports: [
     CommonModule,
@@ -32,6 +35,8 @@ import { CertificateComponent } from './certificate/certificate.component';
     HttpClientModule,
     NgMultiSelectDropDownModule.forRoot(),
     ReactiveFormsModule,
+    NgxPaginationModule,
+    FormsModule,
   ],
   exports:[
 ProfileComponent,

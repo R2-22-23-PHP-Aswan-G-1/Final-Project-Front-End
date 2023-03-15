@@ -19,6 +19,9 @@ import { ServiceHomeComponent } from './user/service-home/service-home.component
 import { ServiceNotificationComponent } from './user/service-notification/service-notification.component';
 // import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { UserComponent } from './user/user.component'
+import { PostsComponent } from './user/userhome/posts/posts.component';
+import { QuestionsviewComponent } from './user/userhome/questionsview/questionsview.component';
+import { UserprofileComponent } from './user/userhome/userprofile/userprofile.component';
 
   const routes: Routes = [
 {path:"test/:id",component:TestComponent},
@@ -30,11 +33,11 @@ import { UserComponent } from './user/user.component'
   {path:'home', component: HomeComponent,canActivate:[AuthonGuard]},
   {path:'profile',component:ProfileComponent},
   {path:'profile/:id',component:ProfileComponent},
+  {path:'profile/:id',component:ProfileComponent},
  /////user routes ////////////////////////////////////////////////
   {path:"user",component:UserComponent , children:[
     // {path:"userHome",component: PagerouteComponent  },
     // {path:"userProfile",component: UserProfileComponent ,canActivate:[AuthonGuard] },
-    {path:'profile/:id',component:ProfileComponent},
     {path:"service/home" , component: ServiceHomeComponent , canActivate:[AuthonGuard]},
     {path:"service/home/:id" , component: ServiceHomeComponent , canActivate:[AuthonGuard]},
     {path:"service/dashboard" , component: ServiceDashboardComponent ,canActivate:[AuthonGuard]},
@@ -42,6 +45,10 @@ import { UserComponent } from './user/user.component'
     {path:"service/notifications" , component: ServiceNotificationComponent ,canActivate:[AuthonGuard]},
     {path:"service/notifications/:id" , component: ServiceNotificationComponent ,canActivate:[AuthonGuard]},
     {path:"service/all-orders" , component: AllUserOrdersComponent ,canActivate:[AuthonGuard]},
+    {path:"Student/Profile" , component: UserprofileComponent ,canActivate:[AuthonGuard]},
+    {path:"Questions" , component: QuestionsviewComponent ,canActivate:[AuthonGuard]},
+    {path:"Posts" , component: PostsComponent,canActivate:[AuthonGuard]},
+
 
   ]},
   //////jobs route///////////////////////////////////

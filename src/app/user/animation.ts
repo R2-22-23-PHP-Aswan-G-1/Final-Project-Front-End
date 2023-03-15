@@ -17,3 +17,10 @@ export let showaddquestion =   trigger('showaddquestion',[
                [ animate(1000)]
                                )
                          ])
+
+export let fadein =   trigger('fadein',[
+               state('void', style({opacity:0  })),
+               transition(':enter , :leave' ,
+               [ animate(500)]
+                               )
+                    ])
