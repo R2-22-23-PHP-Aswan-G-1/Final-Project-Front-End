@@ -34,8 +34,10 @@ jobApplay(jobForm:FormGroup){
   console.log(this.jobForm.value);
   
   if(jobForm.valid){
-  this.jobService.applayJob(this.jobForm.value).subscribe((response)=>{
+  this.jobService.applayJob(this.jobForm.value).subscribe((response)=>{ if(response){
     console.log(response.message);
+  }
+    
   
     
   })

@@ -1,11 +1,15 @@
 
-.jobBanner{
- background-color: var(--section-background);
- height: 100vh;
+.jobBanner h2{
+  line-height: 1.7;
+  background:  linear-gradient(45deg  , var(--main-color) ,var(--sec-color)  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 
 }
 .order-card{
     transition: 1s ease-in-out;
+    margin-bottom: 6rem;
+    
 }
 .order-card button{
     background-color: var(--main-color);

@@ -96,11 +96,12 @@ export class PostsComponent {
        savequestion(){
         if(this.formAddQuestion.valid){
           this.service.setPost(this.formAddQuestion.value).subscribe(res=>{if(res){
+            this.refresh();
+            this.removeformdata()
           }} )
 
         }
-        this.refresh();
-        this.removeformdata()
+
        }
 
     

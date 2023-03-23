@@ -20,7 +20,7 @@ export class ServiceDashboardComponent implements OnInit{
   }
 
   id : any = this.userData.userData().id ;
-  orderId = this.activatedRoute.snapshot.params["id"];
+  orderId :number =0
 
 ngOnInit(): void {
   this.getUserOrders();
@@ -40,11 +40,28 @@ getUserOrders(){
 //////////////////////////////////////////////////////////////////////////////////
 //delete user order
 deleteUserOrder(){
-  this._OrderService.deleteOrder(this.orderId).subscribe((res)=>{
+console.log(this.orderId)
+  if(this.orderId != 0){
+
+    this._OrderService.deleteOrder(this.orderId).subscribe((res)=>{
+      console.log(res);
+      this.message = res ;
+      // this.ngOnInit();
+     this.getUserOrders();
+      
+    })
+  }
+}
+toDeleteOrder(order:number){
+  
+  this.orderId = order
+}
+
+//complete order
+
+completedOrder(id:any){
+  this._OrderService.CompleteOrder(id).subscribe((res)=>{
     console.log(res);
-    this.message = res ;
-    // this.ngOnInit();
-    this.toastr.success("success")
     
   })
 }

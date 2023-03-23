@@ -39,7 +39,7 @@ constructor(private router:Router ,private authService:AuthService ,private user
      this.authService.token();
     this.userDataService.token();
     this.userDataService.userData()
-     this.router.navigate(['/home'])
+     this.router.navigate(['/user/Questions'])
     }else{
 
 this.error=response.message

@@ -285,31 +285,22 @@ export class InformationComponent implements OnInit ,OnChanges{
   }
 //get user img
 
-  
-
 getUserImg(){
   this.informationsService.getImg(this.userDataService.id()).subscribe((res)=>{
    this.img = res.image ;
    console.log(this.img);
-   
-
-
   })
 }
 testForm: FormGroup = new FormGroup({
   subtrack_id: new FormControl(null, [Validators.required]),
 });
-
 startTest(testForm:FormGroup){
 
   if(testForm.valid){
   this.sendIdOfSubtrack(testForm.value.subtrack_id);
   console.log(testForm.value.subtrack_id)
   this.router.navigate(["/test",testForm.value.subtrack_id])
-
 }
-
-
 }
 //test 
 

@@ -43,5 +43,16 @@ showOffers(orderId:any):Observable<any>{
   return this._HttpClient.get(`http://127.0.0.1:8000/api/show/order/${orderId}` , this.requestOptions)
       
   }
+  //////////////////////////////////////////////////
+  //accept offer
+  acceptOffer(offerId:any):Observable<any>{
+    return this._HttpClient.get(`http://127.0.0.1:8000/api/accept/offer/${offerId}` ,this.requestOptions)
+  }
+  ////////////////////////////////////////////////////////
+  //complete order
+  CompleteOrder(id:any):Observable<any>{
+    return this._HttpClient.get(`http://127.0.0.1:8000/api/complete/order/${id}` , this.requestOptions);
+    
+  }
 
 }

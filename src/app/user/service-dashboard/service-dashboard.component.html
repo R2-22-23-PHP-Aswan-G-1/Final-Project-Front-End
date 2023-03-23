@@ -27,9 +27,11 @@
                             <td>{{order.status}}</td>
                              
                                 <td class="ms-2">
-                                <button class=" btn btn-info m-2">Rescedule</button>
-                                <button class=" btn btn-danger m-2" data-bs-toggle="modal" data-bs-target="#deleteModal" [routerLink]="['/user/service/dashboard' , order.id]">Cancel</button>
+                              
+                                <button class=" btn btn-danger m-2" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="toDeleteOrder(order.id)" >Cancel</button>
                                 <button class=" btn btn-success m-2" [routerLink]="['/user/service/notifications' , order.id]">Notifications</button>
+
+                                <button class="btn btn-info" (click) = "completedOrder(order.id)">Completed </button>
                             </td>
 
 
@@ -65,14 +67,14 @@
               <p class="text-black-50">
                 Are you sure you want to delete this order ?
               </p>
-              <div *ngIf = "message" class = "alert alert-success mb-2 w-100 text-center">
+              <div *ngIf = "message " class = "alert alert-success mb-2 w-100 text-center">
                 <small class=" " *ngFor = "let msg of message">{{msg.message}}</small>
            </div>
               </div>
             </div>
-            <div class="modal-footer" *ngFor = "let order of userOrdersList">
+            <div class="modal-footer" >
               <button type="button" class="btn confirm-btn" data-bs-dismiss="modal">Close</button>
-              <button  type="button" class="btn  close-btn" (click) = "deleteUserOrder()" >Delete</button>
+              <button  type="button" class="btn  close-btn" (click) = "deleteUserOrder()" data-bs-dismiss="modal">Delete</button>
             </div>
           </div>
         </div>

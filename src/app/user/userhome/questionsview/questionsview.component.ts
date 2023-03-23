@@ -133,11 +133,11 @@ export class QuestionsviewComponent {
     if (this.formAddQuestion.valid) {
       console.log(this.formAddQuestion.value);
       this.service.addquestion(this.formAddQuestion.value).subscribe((res) => {
-
+        this.refresh();
+        this.removeformdata();
       });
     }
-    this.refresh();
-    this.removeformdata();
+ 
   }
 
   // end add question
