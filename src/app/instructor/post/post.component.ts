@@ -80,7 +80,7 @@ export class PostComponent {
       
         private AddQuestionValidate():FormGroup {
           return new FormGroup({
-            body: new FormControl('',[Validators.required,Validators.minLength(10)]),
+            body: new FormControl('',[Validators.required]),
             instructor_id:new FormControl(this.user_logend.id,[Validators.required])
           })
         }
@@ -90,11 +90,10 @@ export class PostComponent {
           if(this.formAddQuestion.valid){
             console.log(this.formAddQuestion.value)
             this.service.setPost(this.formAddQuestion.value).subscribe(res=>{
-
+              this.refresh();
+              this.removeformdata()
             } )
-            console.log(12)
-            this.refresh();
-            this.removeformdata()
+
           }
 
          }
@@ -103,11 +102,9 @@ export class PostComponent {
     
   
          getQuestion(){
-          console.log(this.user_logend.id)
+   
           this.service.getpostsbyinstrctorid(this.user_logend.id).subscribe(res =>  { this.list = res.data
-          console.log(this.list)
          }) ;
-         console.log(this.list)
        
         }
 
@@ -123,9 +120,12 @@ export class PostComponent {
     
   
     updatequestionbyid(id:string){
-      this.service.updatePost(id,this.bodyupdatequestion).subscribe(res=>  { if(res){this.addupdatedtoquestions()} }) ;
-      this.visibleupdatequestion('-1',"-1");
-      this.bodyupdatequestion = ''
+      this.service.updatePost(id,this.bodyupdatequestion).subscribe(res=>  { if(res){
+        this.visibleupdatequestion('-1',"-1");
+        this.bodyupdatequestion = '';
+        this.refresh();
+       } }) ;
+    
     }
     // to visible question update model
     visibleupdatequestion(question_id:string,body:string){
@@ -138,11 +138,6 @@ export class PostComponent {
     }
     
     // to add new update question in the page
-    private addupdatedtoquestions(){
-      
-        this.refresh()
-        this.bodyupdatequestion = "";
-     }
       // q comment
     
     
@@ -164,7 +159,7 @@ export class PostComponent {
     
   
      deletequestionbyid(question_id:string){
-      if(confirm('Are You Sure To Delete This question?')){
+      if(confirm('Are You Sure To Delete This post?')){
         this.service.deletePost(question_id).subscribe(res =>  { this.refresh() }) ;
       }
      }

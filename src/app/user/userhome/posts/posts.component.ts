@@ -157,10 +157,10 @@ export class PostsComponent {
      }
   
   updateqcommentbyid(id:string){
-    this.service.updatecomment(id,this.bodyupdateqcomment).subscribe(res=>  { if(res){this.refresh() }}) ;
-    this.visiabletextupdateqcomment('-1',"-1");
-    this.bodyupdateqcomment = ''
-    
+    this.service.updatecomment(id,this.bodyupdateqcomment).subscribe(res=>  { if(res){this.refresh()
+      this.visiabletextupdateqcomment('-1',"-1");
+      this.bodyupdateqcomment = ''
+    }}) ;
   }
   
 
